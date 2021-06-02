@@ -27,6 +27,8 @@ Table of Contents:
 
 ### IMPORTS ###
 
+from __future__ import division
+
 # 'generic import' of math module
 import math
 math.sqrt(25)
@@ -93,7 +95,7 @@ bool([2])
 10 / float(4)   # divide (returns 2.5)
 
 # force '/' in Python 2 to perform 'true division' (unnecessary in Python 3)
-from __future__ import division
+
 10 / 4          # true division (returns 2.5)
 10 // 4         # floor division (returns 2)
 
@@ -237,7 +239,7 @@ digits.count(0)     # counts the number of instances of that value (1)
 digits.index(1)     # returns the index of the first instance of that value (1)
 
 # elements of a tuple cannot be modified
-digits[2] = 2       # throws an error
+digits = tuple([2])       # throws an error
 
 # concatenate tuples
 digits = digits + (3, 4)
@@ -356,9 +358,6 @@ family.update({'baby':'maggie', 'grandpa':'abe'})   # add multiple entries
 # access values more safely with 'get'
 family['mom']                       # returns 'marge'
 family.get('mom')                   # equivalent
-family['grandma']                   # throws an error since the key does not exist
-family.get('grandma')               # returns None instead
-family.get('grandma', 'not found')  # returns 'not found' (the default)
 
 # access a list element within a dictionary
 family['kids'][0]                   # returns 'bart'
@@ -378,7 +377,7 @@ family['kids'].remove('lisa')       # removes 'lisa'
 empty_set = set()
 
 # create a set
-languages = {'python', 'r', 'java'}         # create a set directly
+languages = {'python', 'r', 'java', 'c'}         # create a set directly
 snakes = set(['cobra', 'viper', 'python'])  # create a set from a list
 
 # examine a set
@@ -500,7 +499,7 @@ range(3)        # equivalent: default start value is 0
 range(0, 5, 2)  # returns [0, 2, 4]: third argument is the step value
 
 # Python 2 only: use xrange to create a sequence rather than a list (saves memory)
-xrange(100, 100000, 5)
+range(100, 100000, 5)
 
 # for loop (not the recommended style)
 fruits = ['apple', 'banana', 'cherry']
